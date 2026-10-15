@@ -1,0 +1,1 @@
+Drag blocks, watch the MicroPython appear, and run it on a Raspberry Pi Pico — straight from your browser tab. No IDE, no drivers, no extension, no account. 🔌🍓

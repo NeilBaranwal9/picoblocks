@@ -1,0 +1,77 @@
+{
+  "app": "picoblocks",
+  "version": 1,
+  "name": "Button, LED and buzzer",
+  "savedAt": "2026-01-01T00:00:00.000Z",
+  "workspace": {
+    "blocks": {
+      "languageVersion": 0,
+      "blocks": [
+        {
+          "type": "forever",
+          "id": "button-forever",
+          "x": 70,
+          "y": 70,
+          "inputs": {
+            "DO": {
+              "block": {
+                "type": "controls_if",
+                "extraState": { "hasElse": true },
+                "inputs": {
+                  "IF0": {
+                    "block": {
+                      "type": "button_pressed",
+                      "fields": { "PIN": "14" }
+                    }
+                  },
+                  "DO0": {
+                    "block": {
+                      "type": "onboard_led",
+                      "fields": { "STATE": "1" },
+                      "next": {
+                        "block": {
+                          "type": "buzz",
+                          "fields": { "PIN": "15" },
+                          "inputs": {
+                            "FREQ": {
+                              "shadow": {
+                                "type": "math_number",
+                                "fields": { "NUM": 880 }
+                              }
+                            },
+                            "MS": {
+                              "shadow": {
+                                "type": "math_number",
+                                "fields": { "NUM": 100 }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "ELSE": {
+                    "block": {
+                      "type": "onboard_led",
+                      "fields": { "STATE": "0" }
+                    }
+                  }
+                },
+                "next": {
+                  "block": {
+                    "type": "wait_milliseconds",
+                    "inputs": {
+                      "MS": {
+                        "shadow": { "type": "math_number", "fields": { "NUM": 50 } }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
